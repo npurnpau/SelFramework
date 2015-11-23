@@ -28,7 +28,7 @@ public class Demo_Buisiness_Methods extends Demo_GUI_Methods {
 		boolean flag = true;
 		try {
 			userName = data.get("USER_NAME");
-			
+			System.out.println("------"+data.get("USER_NAME"));
 			if (signin_flow(data)) {
 				SuccessReport("Existing user signin verification ",
 						"User successfully signed in");
@@ -48,7 +48,39 @@ public class Demo_Buisiness_Methods extends Demo_GUI_Methods {
 
 	}
 
+	synchronized public boolean verifySampleDB(
+			Hashtable<String, String> data) throws Throwable {
 
+		boolean flag = true;
+		
+		try {
+			if (signin_flow(data)) {
+				if(createWebApp()){
+					
+					if(importSampleDb()){
+						
+					
+					SuccessReport("Existing user signin verification ",
+						"User successfully signed in");
+					}
+				}
+			} else {
+				failureReport("Existing user signin verification ",
+						"User not able to signin");
+			}
+			Thread.sleep(3000);
+
+		} catch (Exception e) {
+
+			flag = false;
+			failureReport("Existing user signin verification ",
+					"User not able to signin");
+		}
+		return flag;
+
+	}
+	
+	
 	synchronized public boolean ExistingUserSignin_fail(
 			Hashtable<String, String> data) throws Throwable {
 
@@ -76,7 +108,7 @@ public class Demo_Buisiness_Methods extends Demo_GUI_Methods {
 		try {
 			userName = data.get("USER_NAME");
 			
-			if (selectClaimType(data)) {
+			if (selectClaim(data)) {
 				SuccessReport("Select Claim Type",
 						"Successfully selected claim type");
 			} else {

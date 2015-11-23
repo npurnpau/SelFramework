@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Parallel Execution]" parallel="tests">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Parallel Execution]" parallel="tests">
   <parameter name="browser" value="Firefox"/>
   <test name="Login Registration On Firefox(failed)" parallel="tests">
     <parameter name="browser" value="Firefox"/>
@@ -20,7 +20,7 @@
           <include name="tearDown"/>
           <include name="tearDownFirefox"/>
           <include name="reportHeader"/>
-          <include name="Login_Test_fail"/>
+          <include name="Import_DB"/>
         </methods>
       </class> <!-- com.demo.scripts.Login_Test -->
     </classes>

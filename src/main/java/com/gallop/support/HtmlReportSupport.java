@@ -373,7 +373,7 @@ public class HtmlReportSupport {
 			writer.write("<html> ");
 			writer.write("<head> ");
 			writer.write("<meta charset='UTF-8'> ");
-			writer.write("<title>ClaimSecure - Automation Execution Results Summary</title>");
+			writer.write("<title>WaveMaker Studio - Automation Execution Results Summary</title>");
 
 			writer.write("<style type='text/css'>");
 			writer.write("body {");
@@ -561,7 +561,7 @@ public class HtmlReportSupport {
 
 			writer.write("<tr class='heading'> ");
 			writer.write("<th colspan='4' style='font-family:Copperplate Gothic Bold; font-size:1.4em;'> ");
-			writer.write("ClaimSecure -  Automation Execution Result Summary ");
+			writer.write("WaveMaker Studio -  Automation Execution Result Summary ");
 			writer.write("</th> ");
 			writer.write("</tr> ");
 			writer.write("<tr class='subheading'> ");

@@ -25,7 +25,7 @@ public class TestUtil {
 	}
 	
 	
-	public static Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir")+"/Data/TestData.xlsx");
+	public static Xls_Reader xls = new Xls_Reader(System.getProperty("user.dir")+"/Data/TestData.xls");
 	synchronized public static Hashtable<String, String> getData(String testCase, String sheetName){
 		System.out.println("*************");
 		// find the test in xls

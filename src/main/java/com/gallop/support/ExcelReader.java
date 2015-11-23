@@ -23,10 +23,19 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFCreationHelper;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFHyperlink;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 @SuppressWarnings("all")
@@ -36,11 +45,11 @@ public class ExcelReader {
 	public FileInputStream fis = null;
 	public FileOutputStream fileOut = null;
 
-	public HSSFWorkbook workbook = null;
-	public HSSFSheet sheet = null;
-	private HSSFRow row = null;
+	public XSSFWorkbook workbook = null;
+	public XSSFSheet sheet = null;
+	private XSSFRow row = null;
 	private Column col = null;
-	private HSSFCell cell = null;
+	private XSSFCell cell = null;
 	private String sheetName;
 
 	public ExcelReader(String path, String shtName) {
@@ -48,7 +57,11 @@ public class ExcelReader {
 		this.path = path;
 		try {
 			fis = new FileInputStream(path);
-			workbook = new HSSFWorkbook(fis);
+			//workbook = new HSSFWorkbook(fis);
+			
+			workbook=new XSSFWorkbook(fis);
+		    
+			
 			sheet = workbook.getSheetAt(0);
 			sheetName = shtName;
 			fis.close();
@@ -273,7 +286,7 @@ public class ExcelReader {
 			String data) {
 		try {
 			fis = new FileInputStream(path);
-			workbook = new HSSFWorkbook(fis);
+			workbook = new XSSFWorkbook(fis);
 
 			if (rowNum <= 0)
 				return false;
@@ -328,7 +341,7 @@ public class ExcelReader {
 		// System.out.println("setCellData setCellData******************");
 		try {
 			fis = new FileInputStream(path);
-			workbook = new HSSFWorkbook(fis);
+			workbook = new XSSFWorkbook(fis);
 
 			if (rowNum <= 0)
 				return false;
@@ -361,18 +374,18 @@ public class ExcelReader {
 				cell = row.createCell(colNum);
 
 			cell.setCellValue(data);
-			HSSFCreationHelper createHelper = workbook.getCreationHelper();
+			XSSFCreationHelper createHelper = workbook.getCreationHelper();
 
 			// cell style for hyperlinks
 			// by default hypelrinks are blue and underlined
 			CellStyle hlink_style = workbook.createCellStyle();
-			HSSFFont hlink_font = workbook.createFont();
+			XSSFFont hlink_font = workbook.createFont();
 			hlink_font.setUnderline(HSSFFont.U_SINGLE);
 			hlink_font.setColor(IndexedColors.BLUE.getIndex());
 			hlink_style.setFont(hlink_font);
 			// hlink_style.setWrapText(true);
 
-			HSSFHyperlink link = createHelper
+			XSSFHyperlink link = createHelper
 					.createHyperlink(HSSFHyperlink.LINK_FILE);
 			link.setAddress(url);
 			cell.setHyperlink(link);
@@ -432,12 +445,12 @@ public class ExcelReader {
 
 		try {
 			fis = new FileInputStream(path);
-			workbook = new HSSFWorkbook(fis);
+			workbook = new XSSFWorkbook(fis);
 			int index = workbook.getSheetIndex(sheetName);
 			if (index == -1)
 				return false;
 
-			HSSFCellStyle style = workbook.createCellStyle();
+			XSSFCellStyle style = workbook.createCellStyle();
 			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
 			style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 
@@ -477,11 +490,11 @@ public class ExcelReader {
 			if (!isSheetExist(sheetName))
 				return false;
 			fis = new FileInputStream(path);
-			workbook = new HSSFWorkbook(fis);
+			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheet(sheetName);
-			HSSFCellStyle style = workbook.createCellStyle();
+			XSSFCellStyle style = workbook.createCellStyle();
 			style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
-			HSSFCreationHelper createHelper = workbook.getCreationHelper();
+			XSSFCreationHelper createHelper = workbook.getCreationHelper();
 			style.setFillPattern(HSSFCellStyle.NO_FILL);
 
 			for (int i = 0; i < getRowCount(sheetName); i++) {

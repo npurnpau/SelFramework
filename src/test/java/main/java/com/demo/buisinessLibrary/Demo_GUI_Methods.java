@@ -4,14 +4,18 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Hashtable;
-
-
+import java.util.UUID;
 
 import main.java.com.demo.objectRepository.ClaimPage;
 import main.java.com.demo.objectRepository.HomePage;
+import main.java.com.demo.objectRepository.ImportDatabaseWizardPage;
 import main.java.com.demo.objectRepository.Loginpage;
+import main.java.com.demo.objectRepository.ProjectsListPage;
+import main.java.com.demo.objectRepository.StudioWorkspacePage;
+import main.java.com.demo.objectRepository.WmStudioHeaderPage;
 import main.java.com.demo.objectRepository.cartPage;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -33,18 +37,13 @@ public class Demo_GUI_Methods extends ActionEngine {
 	synchronized public boolean signin_flow(Hashtable<String, String> data) {
 		boolean flag = true;
 		try {
-			
 			//Thread.sleep(5000);
 			driver.manage().window().maximize();
-					
-		
+			System.out.println(data.get("USER_NAME"));
 			waitForElementPresent(Loginpage.username, "Username Text Box");
 			type(Loginpage.username, data.get("USER_NAME"), "Username Field");
 			type(Loginpage.password, data.get("PASSWORD"), "Password Field");
 			click(Loginpage.signin_button, "Verify Signned in");
-			
-			
-			
 			Thread.sleep(3000);
 			
 		/*	if(driver.findElement(Loginpage.verify_loggedin).getText().equals("Sign in"))
@@ -58,25 +57,27 @@ public class Demo_GUI_Methods extends ActionEngine {
 		return flag;
 	}
 	
-	synchronized public boolean selectClaimType(Hashtable<String, String> data) {
+	synchronized public boolean createWebApp() {
 		boolean flag = true;
 		try {
 			
-			Thread.sleep(5000);
-			//driver.manage().window().maximize();
-		    
-			click(ClaimPage.myClaims,"My Claims tab");
-			click(ClaimPage.submitClaims,"Submit Claims Button");
+			waitForElementPresent(ProjectsListPage.createApplication, "Create Application Button");
+			click(ProjectsListPage.createApplication, "Verify create application Button");
+			click(ProjectsListPage.selectPlatformasWeb, "Selected as web application");
 			
-			if(!waitForElementPresent(ClaimPage.attention, "Attention Page"))
-				return false;
+			type(ProjectsListPage.applicationName, "Auto_"+RandomStringUtils.randomAlphabetic(10), "Project Name Entered");
+			//selectByValue(ProjectsListPage.projectshellSelectbox, "Default Project", "Project shell Selected as Default");
+			click(ProjectsListPage.createProjectButton, "Project create button has clicked");
 			
-			click(ClaimPage.proceedWithClaim,"Proceed with claim Button");
-			click(ClaimPage.iAgree,"I Agree Button");
-			selectByVisibleText(ClaimPage.claimType, "DRUG", "Claim Type List Box");
-			click(ClaimPage.claimNext,"Next button");
-						
+			waitForVisibilityOfElement(StudioWorkspacePage.projectSettingsHeader,"Project created successfully and project settings header has been displayed");
+			waitForVisibilityOfElement(StudioWorkspacePage.projectcreateContinueMessage,"Project created successfully and project settings header has been displayed");
+			click(StudioWorkspacePage.projectcreateContinueMessage, "Continuing with default project settings.");
+			click(StudioWorkspacePage.threeColumnWithTopNav, "Three column layout selected by default");
+			click(StudioWorkspacePage.btnCreatePage, "Main Page created");
 			
+		/*	if(driver.findElement(Loginpage.verify_loggedin).getText().equals("Sign in"))
+				flag=false;*/
+
 		} catch (Throwable e) {
 			flag = false;
 			e.printStackTrace();
@@ -84,6 +85,36 @@ public class Demo_GUI_Methods extends ActionEngine {
 
 		return flag;
 	}
+	
+	synchronized public boolean importSampleDb() {
+		boolean flag = true;
+		try {
+			
+			waitForElementPresent(WmStudioHeaderPage.headerImport, "Header Import button");
+			click(WmStudioHeaderPage.headerImport, "Clicked on header Import");
+			click(WmStudioHeaderPage.ImportDB, "Clicked on import db button");
+			waitForElementPresent(ImportDatabaseWizardPage.sampleDBButton, "Sample Db button");
+			click(ImportDatabaseWizardPage.sampleDBButton, "Clicked on sample db button");
+			click(ImportDatabaseWizardPage.incrementStepButton, "Incremented step 2");
+			clickAndWaitForElementPresent(ImportDatabaseWizardPage.incrementStepButton,ImportDatabaseWizardPage.usedbwidgetsButton, "Incremented step 3");
+			click(ImportDatabaseWizardPage.usedbwidgetsButton, "Clicked on use db widgets.");
+			
+			type(ProjectsListPage.applicationName, "Auto_"+RandomStringUtils.randomAlphabetic(10), "Project Name Entered");
+			selectByValue(ProjectsListPage.projectshellSelectbox, "Default Project", "Project shell Selected as Default");
+			click(ProjectsListPage.createProjectButton, "Project create button has clicked");
+			waitForVisibilityOfElement(StudioWorkspacePage.projectSettingsHeader,"Project created successfully and project settings header has been displayed");
+			
+		/*	if(driver.findElement(Loginpage.verify_loggedin).getText().equals("Sign in"))
+				flag=false;*/
+
+		} catch (Throwable e) {
+			flag = false;
+			e.printStackTrace();
+		}
+
+		return flag;
+	}
+	
 	
 	synchronized public boolean submitClaimType(Hashtable<String, String> data) {
 		boolean flag = true;
