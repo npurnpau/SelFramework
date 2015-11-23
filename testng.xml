@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel Execution" verbose="0" parallel="tests" thread-count="5">
+
+
+	<test name="Login Registration On Firefox">
+		<parameter name="browser" value="Firefox" />
+		
+		<groups>
+			<run>
+				<include name="smoke" />
+				<include name="regression" />
+			</run>
+		</groups>
+		
+		<classes>
+		    <class name="com.demo.scripts.Login_Test" />
+			<class name="com.demo.scripts.Login_Fail" />
+		</classes>
+	</test>
+<!-- 
+	<test name="Login Registration On Chrome">
+		<parameter name="browser" value="Chrome" />
+		
+		<groups>
+			<run>
+				<include name="smoke" />
+				<include name="regression" />
+			</run>
+		</groups>
+		
+		<classes>
+
+			<class name="com.demo.scripts.Login_Test" />
+			<class name="com.demo.scripts.Today_Deal" />
+			<class name="com.demo.scripts.search_Term" />
+
+		</classes>
+	</test>
+
+ -->	<!-- <test name="Login Registration On IE"> <parameter name="browser" value="IE"/> 
+		<classes> <class name="test.java.com.HTTYD.scripts.Login_Test" /> </classes> 
+		</test> -->
+
+
+</suite> 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Parallel Execution]" parallel="tests">
+  <parameter name="browser" value="Firefox"/>
+  <test name="Login Registration On Firefox(failed)" parallel="tests">
+    <parameter name="browser" value="Firefox"/>
+    <groups>
+      <run>
+        <include name="smoke"/>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.demo.scripts.Login_Test">
+        <methods>
+          <include name="close"/>
+          <include name="tearDownChrome"/>
+          <include name="first"/>
+          <include name="first"/>
+          <include name="tearDown"/>
+          <include name="tearDownFirefox"/>
+          <include name="reportHeader"/>
+          <include name="Login_Test_fail"/>
+        </methods>
+      </class> <!-- com.demo.scripts.Login_Test -->
+    </classes>
+  </test> <!-- Login Registration On Firefox(failed) -->
+</suite> <!-- Failed suite [Parallel Execution] -->

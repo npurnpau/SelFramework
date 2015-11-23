@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body><table><tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr><tr><th colspan="7">Parallel Execution</th></tr><tr><td><a href="#t0">Login Registration On Firefox</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">249,630</td><td>smoke</td><td></td></tr></table><table><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Parallel Execution</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Login Registration On Firefox &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.demo.scripts.Verify_Member_Coverage</td><td><a href="#m0">tearDownChrome</a></td><td rowspan="1">1414584520874</td><td rowspan="1">0</td></tr><tr><th colspan="4">Login Registration On Firefox &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.demo.scripts.Submit_Claim</td><td><a href="#m1">Submit_Claim</a></td><td rowspan="1">1414584299030</td><td rowspan="1">100118</td></tr><tr class="passedodd"><td rowspan="1">com.demo.scripts.Verify_Dependent_Coverage</td><td><a href="#m2">Verify_Dependent_Coverage</a></td><td rowspan="1">1414584475561</td><td rowspan="1">45253</td></tr><tr class="passedeven"><td rowspan="1">com.demo.scripts.Verify_Member_Coverage</td><td><a href="#m3">Verify_Member_Coverage</a></td><td rowspan="1">1414584416696</td><td rowspan="1">37315</td></tr></tbody></table><h2>Login Registration On Firefox</h2><h3 id="m0">com.demo.scripts.Verify_Member_Coverage#tearDownChrome</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@6fb903c1</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;2.43.1&apos;, revision: &apos;5163bceef1bc36d43f3dc0b83c88998168a363a0&apos;, time: &apos;2014-09-10 09:43:55&apos;
+System info: host: &apos;HW0675&apos;, ip: &apos;172.16.12.168&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_11&apos;
+Driver info: driver.version: EventFiringWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:614)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
+	at $Proxy12.quit(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.quit(EventFiringWebDriver.java:198)
+	at com.gallop.accelerators.TestEngine.tearDownChrome(TestEngine.java:184)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7056 [/127.0.0.1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:140)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:318)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.openqa.selenium.remote.HttpCommandExecutor.fallBackExecute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:184)
+	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
+	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
+	... 31 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:75)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:157)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:391)
+	at java.net.Socket.connect(Socket.java:579)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:123)
+	... 45 more
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">com.demo.scripts.Submit_Claim#Submit_Claim</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m2">com.demo.scripts.Verify_Dependent_Coverage#Verify_Dependent_Coverage</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m3">com.demo.scripts.Verify_Member_Coverage#Verify_Member_Coverage</h3><table class="result"></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>
