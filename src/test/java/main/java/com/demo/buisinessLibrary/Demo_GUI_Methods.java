@@ -89,7 +89,7 @@ public class Demo_GUI_Methods extends ActionEngine {
 	synchronized public boolean importSampleDb() {
 		boolean flag = true;
 		try {
-			
+			 
 			waitForElementPresent(WmStudioHeaderPage.headerImport, "Header Import button");
 			click(WmStudioHeaderPage.headerImport, "Clicked on header Import");
 			click(WmStudioHeaderPage.ImportDB, "Clicked on import db button");
