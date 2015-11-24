@@ -58,8 +58,6 @@ public class Demo_Buisiness_Methods extends Demo_GUI_Methods {
 				if(createWebApp()){
 					
 					if(importSampleDb()){
-						
-					
 					SuccessReport("Existing user signin verification ",
 						"User successfully signed in");
 					}

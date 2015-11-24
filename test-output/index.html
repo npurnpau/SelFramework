@@ -140,7 +140,7 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;Parallel Execution&quot; parallel=&quot;tests&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;Parallel Execution&quot; parallel=&quot;tests&quot;&gt;
   &lt;test name=&quot;Login Registration On Firefox&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;Firefox&quot;/&gt;
     &lt;groups&gt;
@@ -203,12 +203,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Import_SampleDB')
 data.setCell(0, 2, 'com.demo.scripts.Login_Test')
-data.setCell(0, 3, 129947);
+data.setCell(0, 3, 89325);
 window.suiteTableData['Parallel_Execution']= { tableData: data, tableDiv: 'times-div-Parallel_Execution'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Parallel_Execution">
               </div> <!-- times-div-Parallel_Execution -->
             </div> <!-- times-div -->
@@ -227,7 +227,7 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.demo.scripts.Login_Fail</span>
+              <span class="ignored-class-name">com.demo.scripts.Login_Test</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">tearDownChrome</span>
                 <br/>
@@ -245,38 +245,48 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.demo.scripts.Login_Test</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.demo.scripts.Login_Fail</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">first(org.testng.TestRunner@e15b7e8)</span>
+                <span class="method-name">first(org.testng.TestRunner@1bb266b3)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.demo.scripts.Login_Test</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">first(org.testng.TestRunner@e15b7e8, Firefox)</span>
-                <span class="method-start">18 ms</span>
+                <span class="method-name">first(org.testng.TestRunner@1bb266b3, Firefox)</span>
+                <span class="method-start">28 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">reportHeader(public void com.demo.scripts.Login_Test.Import_SampleDB() throws java.lang.Throwable, org.testng.Tes...)</span>
-                <span class="method-start">12884 ms</span>
+                <span class="method-start">12182 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">Import_SampleDB</span>
-                <span class="method-start">12895 ms</span>
+                <span class="method-start">12193 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">142844 ms</span>
+                <span class="method-start">101520 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">close(Firefox)</span>
-                <span class="method-start">142861 ms</span>
+                <span class="method-start">101543 ms</span>
               </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.demo.scripts.Login_Fail</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
-                <span class="method-name">tearDownChrome(org.testng.TestRunner@e15b7e8)</span>
-                <span class="method-start">142947 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tearDownChrome(org.testng.TestRunner@1bb266b3)</span>
+                <span class="method-start">101633 ms</span>
               </div> <!-- configuration-suite after -->
               <div class="configuration-suite after">
-                <span class="method-name">tearDownFirefox(org.testng.TestRunner@e15b7e8)</span>
-                <span class="method-start">143692 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tearDownFirefox(org.testng.TestRunner@1bb266b3)</span>
+                <span class="method-start">101645 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

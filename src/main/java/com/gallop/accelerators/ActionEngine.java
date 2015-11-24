@@ -59,6 +59,31 @@ public class ActionEngine extends TestEngine {
 		boolean flag = false;
 		try {
 			driver.findElement(locator).click();
+			System.out.println("Click - Successfully clicked on "+ locatorName);
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (!flag) {
+				failureReport("Click", "Unable to clicked on "
+						+ locatorName);
+				return true;
+			} else if (b && flag) {
+				SuccessReport("Click", "Successfully clicked on "
+						+ locatorName);
+
+			}
+		}
+		return flag;
+	}
+	
+	
+	public boolean waituntilClickableandClick(By locator, String locatorName)
+			throws Throwable {
+		boolean flag = false;
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(locator));
+			driver.findElement(locator).click();
 			flag = true;
 		} catch (Exception e) {
 
@@ -95,7 +120,6 @@ public class ActionEngine extends TestEngine {
 			flag = true;
 			return true;
 		} catch (Exception e) {
-
 			System.out.println(e.getMessage());
 			return false;
 		} finally {
@@ -427,6 +451,7 @@ public class ActionEngine extends TestEngine {
 			for (int i = 0; i < 300; i++) {
 				if (driver.findElement(by).isDisplayed()) {
 					flag = true;
+					System.out.println("waitForElementPresent - Successfully found element "+ locator);
 					return true;
 
 				} else {

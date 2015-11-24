@@ -17,7 +17,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	 <classpathentry kind="lib" path="C:/Users/harishv/Desktop/selenium-server-standalone-2.48.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/harishv/.m2/repository/org/seleniumhq/selenium/selenium-server/2.48.2/selenium-server-2.48.2.jar"/>
+	
+	 <!-- <classpathentry kind="lib" path="C:/Users/harishv/Desktop/selenium-server-standalone-2.48.2.jar"/> -->
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

@@ -69,11 +69,18 @@ public class Demo_GUI_Methods extends ActionEngine {
 			//selectByValue(ProjectsListPage.projectshellSelectbox, "Default Project", "Project shell Selected as Default");
 			click(ProjectsListPage.createProjectButton, "Project create button has clicked");
 			
-			waitForVisibilityOfElement(StudioWorkspacePage.projectSettingsHeader,"Project created successfully and project settings header has been displayed");
-			waitForVisibilityOfElement(StudioWorkspacePage.projectcreateContinueMessage,"Project created successfully and project settings header has been displayed");
-			click(StudioWorkspacePage.projectcreateContinueMessage, "Continuing with default project settings.");
-			click(StudioWorkspacePage.threeColumnWithTopNav, "Three column layout selected by default");
-			click(StudioWorkspacePage.btnCreatePage, "Main Page created");
+			//waitForElementPresent(by, locator)
+			//clickAndWaitForElementPresent(ProjectsListPage.createProjectButton, StudioWorkspacePage.projectcreateContinueMessage, "Project create button has clicked");
+			waitForVisibilityOfElement(StudioWorkspacePage.projectcreateContinueMessage,"continue message");
+			
+			click(StudioWorkspacePage.projectcreateContinueMessage, "default project settings");
+			waitForVisibilityOfElement(StudioWorkspacePage.threeColumnWithTopNav,"Three column layout ");
+			waitForElementPresent(StudioWorkspacePage.threeColumnWithTopNav, "Three column layout ");
+			
+			click(StudioWorkspacePage.threeColumnWithTopNav, "Three column layout ");
+			System.out.println("Here2");
+			click(StudioWorkspacePage.btnCreatePage, "button on Main Page");
+			System.out.println("Here3");
 			
 		/*	if(driver.findElement(Loginpage.verify_loggedin).getText().equals("Sign in"))
 				flag=false;*/
@@ -91,18 +98,14 @@ public class Demo_GUI_Methods extends ActionEngine {
 		try {
 			 
 			waitForElementPresent(WmStudioHeaderPage.headerImport, "Header Import button");
-			click(WmStudioHeaderPage.headerImport, "Clicked on header Import");
-			click(WmStudioHeaderPage.ImportDB, "Clicked on import db button");
-			waitForElementPresent(ImportDatabaseWizardPage.sampleDBButton, "Sample Db button");
-			click(ImportDatabaseWizardPage.sampleDBButton, "Clicked on sample db button");
-			click(ImportDatabaseWizardPage.incrementStepButton, "Incremented step 2");
+			waituntilClickableandClick(WmStudioHeaderPage.headerImport, "Clicked on header Import");
+			waituntilClickableandClick(WmStudioHeaderPage.ImportDB, "Clicked on import db button");
+			waituntilClickableandClick(ImportDatabaseWizardPage.sampleDBButton, "Sample Db button");
+			waituntilClickableandClick(ImportDatabaseWizardPage.sampleDBButton, "Clicked on sample db button");
+			waituntilClickableandClick(ImportDatabaseWizardPage.incrementStepButton, "Incremented step 2");
 			clickAndWaitForElementPresent(ImportDatabaseWizardPage.incrementStepButton,ImportDatabaseWizardPage.usedbwidgetsButton, "Incremented step 3");
-			click(ImportDatabaseWizardPage.usedbwidgetsButton, "Clicked on use db widgets.");
+			waituntilClickableandClick(ImportDatabaseWizardPage.usedbwidgetsButton, "Clicked on use db widgets.");
 			
-			type(ProjectsListPage.applicationName, "Auto_"+RandomStringUtils.randomAlphabetic(10), "Project Name Entered");
-			selectByValue(ProjectsListPage.projectshellSelectbox, "Default Project", "Project shell Selected as Default");
-			click(ProjectsListPage.createProjectButton, "Project create button has clicked");
-			waitForVisibilityOfElement(StudioWorkspacePage.projectSettingsHeader,"Project created successfully and project settings header has been displayed");
 			
 		/*	if(driver.findElement(Loginpage.verify_loggedin).getText().equals("Sign in"))
 				flag=false;*/
