@@ -12,8 +12,8 @@
 	<property name="test.dest" value="${ws.h${user.home}ome}/build" />
 	<property name="test.src" value="${ws.home}/src" />
 	<property name="ng.result" value="test-output" />
-	<property name="cigniti.result" value="${ws.home}/Results" />
-	<property name="cigniti.zip" value="${ws.home}/zip" />
+	<property name="pramati.result" value="${ws.home}/Results" />
+	<property name="pramati.zip" value="${ws.home}/zip" />
 
 	 <target name="setClassPath" unless="test.classpath">
 	        <path id="classpath_jars">

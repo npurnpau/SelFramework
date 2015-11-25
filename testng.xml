@@ -6,41 +6,22 @@
 	<test name="Login Registration On Firefox">
 		<parameter name="browser" value="Firefox" />
 		
-		<groups>
-			<run>
-				<include name="smoke" />
-				<include name="regression" />
-			</run>
-		</groups>
-		
+			
 		<classes>
-		    <class name="com.demo.scripts.Login_Test" />
-			<class name="com.demo.scripts.Login_Fail" />
-		</classes>
-	</test>
-<!-- 
-	<test name="Login Registration On Chrome">
-		<parameter name="browser" value="Chrome" />
-		
-		<groups>
-			<run>
-				<include name="smoke" />
-				<include name="regression" />
-			</run>
-		</groups>
-		
-		<classes>
-
-			<class name="com.demo.scripts.Login_Test" />
-			<class name="com.demo.scripts.Today_Deal" />
-			<class name="com.demo.scripts.search_Term" />
-
+		    <class name="com.wavemakerstudio.tests.Login_Test" />
+			
 		</classes>
 	</test>
 
- -->	<!-- <test name="Login Registration On IE"> <parameter name="browser" value="IE"/> 
-		<classes> <class name="test.java.com.HTTYD.scripts.Login_Test" /> </classes> 
-		</test> -->
 
+<test name="Login Failure On Firefox">
+		<parameter name="browser" value="Firefox" />
+		
+			
+		<classes>
+		    
+			<class name="com.wavemakerstudio.tests.Login_Fail_Test" />
+		</classes>
+	</test>
 
 </suite> 
